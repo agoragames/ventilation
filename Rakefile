@@ -12,6 +12,7 @@ begin
     gem.homepage = "http://github.com/blakefrost/fancy_esi"
     gem.authors = ["Blake Taylor"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.files << "lib/deep_stack.rb"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

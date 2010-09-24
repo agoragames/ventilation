@@ -1,8 +1,7 @@
 require 'test_helper'
 
-class FancyEsiTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+class TestFancyEsi < Test::Unit::TestCase
+  should "probably rename this file and start testing for real" do
+    flunk "hey buddy, you should probably rename this file and start testing for real"
   end
 end

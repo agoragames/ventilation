@@ -15,6 +15,23 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
     "README"
   ]
+  s.files = [
+    ".gitignore",
+     "MIT-LICENSE",
+     "README",
+     "Rakefile",
+     "VERSION",
+     "fancy_esi.gemspec",
+     "init.rb",
+     "install.rb",
+     "lib/app/helpers/esi_helper.rb",
+     "lib/fancy_esi.rb",
+     "lib/fancy_esi/deep_stack.rb",
+     "lib/tasks/fancy_esi.rake",
+     "test/fancy_esi_test.rb",
+     "test/test_helper.rb",
+     "uninstall.rb"
+  ]
   s.homepage = %q{http://github.com/blakefrost/fancy_esi}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
@@ -38,4 +55,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
   end
 end
-
