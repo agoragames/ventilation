@@ -13,9 +13,7 @@ class TestVentilation < Test::Unit::TestCase
       expected = "response_from_example.com"
       FakeWeb.register_uri(:get, "http://example.com/", :body => expected)
 
-      actual = @consumer.esi :host => 'http://example.com', :path => '/'
-      # TODO: Replace with this synatx
-      # actual = @consumer.esi 'http://example.com'
+      actual = @consumer.esi 'http://example.com/'
 
       assert_equal expected, actual, "Expected response was not rendered by esi method"
     end
@@ -28,7 +26,7 @@ class TestVentilation < Test::Unit::TestCase
       deep_stack.expects(:get).with(:index).returns(response)
       Ventilation::DeepStack.expects(:new).with(WelcomeController).returns(deep_stack)
 
-      actual = @consumer.esi :controller => :welcome, :action => :index
+      actual = @consumer.esi :index, :controller => :welcome
 
       assert_equal expected, actual
     end

@@ -22,18 +22,19 @@ WARNING: Using Varnish without Ventilation may result in death!
 Example
 =======
 
-Including an html partial from a cdn.
+Include from a content delivery network.
 
     <%= esi "http://cdn.megadomain.com/network_nav" %>
 
-Including are partial render from somewhere within your application.
+Include from somewhere else within your application.
 
-    <%= esi :controller => :site, :action => :header %>
+    <%= esi :header %>
+    <%= esi :header, :controller => :site %>
 
 Copyright (c) 2010 [name of plugin creator], released under the MIT license
 
 Resources
 =========
-[Ventilation Home](http://github.com/agoragames/ventilation)
-[ESI Language Specification 1.0](http://www.w3.org/TR/esi-lang)
-[Edge Side Includes - Wikipedia](http://en.wikipedia.org/wiki/Edge_Side_Includes)
+  * [Ventilation Home](http://github.com/agoragames/ventilation)
+  * [ESI Language Specification 1.0](http://www.w3.org/TR/esi-lang)
+  * [Edge Side Includes - Wikipedia](http://en.wikipedia.org/wiki/Edge_Side_Includes)
