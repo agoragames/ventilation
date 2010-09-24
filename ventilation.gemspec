@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{fancy_esi}
+  s.name = %q{ventilation}
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -21,25 +21,24 @@ Gem::Specification.new do |s|
      "README",
      "Rakefile",
      "VERSION",
-     "fancy_esi.gemspec",
      "init.rb",
      "install.rb",
      "lib/app/helpers/esi_helper.rb",
-     "lib/fancy_esi.rb",
-     "lib/fancy_esi/deep_stack.rb",
-     "lib/tasks/fancy_esi.rake",
-     "test/fancy_esi_test.rb",
+     "lib/tasks/ventilation.rake",
+     "lib/ventilation.rb",
+     "lib/ventilation/deep_stack.rb",
      "test/test_helper.rb",
+     "test/ventilation_test.rb",
      "uninstall.rb"
   ]
-  s.homepage = %q{http://github.com/blakefrost/fancy_esi}
+  s.homepage = %q{http://github.com/agoragames/ventilation}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Fancy ESI integration for your high prefomance web apps.}
   s.test_files = [
-    "test/fancy_esi_test.rb",
-     "test/test_helper.rb"
+    "test/test_helper.rb",
+     "test/ventilation_test.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -48,10 +47,17 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+      s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
+      s.add_development_dependency(%q<mocha>, [">= 0.9.8"])
     else
       s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+      s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
+      s.add_dependency(%q<mocha>, [">= 0.9.8"])
     end
   else
     s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+    s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
+    s.add_dependency(%q<mocha>, [">= 0.9.8"])
   end
 end
+

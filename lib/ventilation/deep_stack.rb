@@ -1,4 +1,4 @@
-module FancyEsi
+module Ventilation
   class DeepStack
     include ActionController::TestProcess
 

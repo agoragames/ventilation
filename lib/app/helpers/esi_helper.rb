@@ -2,9 +2,9 @@
 require 'net/http'
 require 'uri'
 require 'action_controller'
-require 'fancy_esi/deep_stack'
+require 'ventilation/deep_stack'
 
-module FancyEsi
+module Ventilation
   module EsiHelper
     def esi(url_options)
       env = ENV['RAILS_ENV']
@@ -47,5 +47,5 @@ end
 
 # Include EsiHelper in the Application
 module ApplicationHelper
-  include FancyEsi::EsiHelper
+  include Ventilation::EsiHelper
 end

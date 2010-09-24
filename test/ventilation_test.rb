@@ -1,7 +1,7 @@
 require 'test_helper'
-require 'fancy_esi/deep_stack'
+require 'ventilation/deep_stack'
 
-class TestFancyEsi < Test::Unit::TestCase
+class TestVentilation < Test::Unit::TestCase
 
   context "a test consumer"do
     setup do
@@ -26,7 +26,7 @@ class TestFancyEsi < Test::Unit::TestCase
       response.expects(:body).returns(expected)
       deep_stack = mock()
       deep_stack.expects(:get).with(:index).returns(response)
-      FancyEsi::DeepStack.expects(:new).with(WelcomeController).returns(deep_stack)
+      Ventilation::DeepStack.expects(:new).with(WelcomeController).returns(deep_stack)
 
       actual = @consumer.esi :controller => :welcome, :action => :index
 

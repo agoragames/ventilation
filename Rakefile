@@ -5,24 +5,22 @@ require 'rake/rdoctask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "fancy_esi"
+    gem.name = "ventilation"
     gem.summary = %Q{Fancy ESI integration for your high prefomance web apps.}
     gem.description = %Q{Helper methods for building esi tags, simplifies development bypassing the need for varnish.}
     gem.email = "btaylor@agoragames.com"
-    gem.homepage = "http://github.com/blakefrost/fancy_esi"
+    gem.homepage = "http://github.com/agoragames/ventilation"
     gem.authors = ["Blake Taylor"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     gem.add_development_dependency "fakeweb", ">= 1.2.8"
     gem.add_development_dependency "mocha", ">= 0.9.8"
-    gem.files << "lib/deep_stack.rb"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-desc 'Test fancy_esi.'
+desc 'Test ventilation.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
   t.libs << 'test'
@@ -39,7 +37,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "fancy_esi #{version}"
+  rdoc.title = "ventilation #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
