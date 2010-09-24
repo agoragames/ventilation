@@ -11,7 +11,7 @@ module Ventilation
       env = ENV['RAILS_ENV']
 
       # If we were passed a url...
-      if resource =~ /^(http:\/\/)?[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu)[a-zA-Z0-9\-\.\/]+$/i
+      if resource =~ /^(http:\/\/)?[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu)[a-zA-Z0-9\-\.\/]*$/i
         # ...fetch and render an external resource...
         case env
         when 'production'
