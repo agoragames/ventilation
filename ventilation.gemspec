@@ -13,12 +13,12 @@ Gem::Specification.new do |s|
   s.description = %q{Helper methods for building esi tags, simplifies development bypassing the need for varnish.}
   s.email = %q{btaylor@agoragames.com}
   s.extra_rdoc_files = [
-    "README"
+    "README.markdown"
   ]
   s.files = [
     ".gitignore",
      "MIT-LICENSE",
-     "README",
+     "README.markdown",
      "Rakefile",
      "VERSION",
      "init.rb",
@@ -29,7 +29,8 @@ Gem::Specification.new do |s|
      "lib/ventilation/deep_stack.rb",
      "test/test_helper.rb",
      "test/ventilation_test.rb",
-     "uninstall.rb"
+     "uninstall.rb",
+     "ventilation.gemspec"
   ]
   s.homepage = %q{http://github.com/agoragames/ventilation}
   s.rdoc_options = ["--charset=UTF-8"]
