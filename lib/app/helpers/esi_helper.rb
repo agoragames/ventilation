@@ -5,7 +5,7 @@ require 'ventilation/deep_stack'
 
 module Ventilation
   module EsiHelper
-    
+
     # Render resource on the edge
     def esi(resource, options = {})
       env = ENV['RAILS_ENV']
@@ -27,7 +27,7 @@ module Ventilation
         # ...otherwise render as an action.
         case env
         when 'production'
-          %%<esi:include src="#{url_for url_options}" />%
+          %%<esi:include src="#{url_for url_options.merge(:action => resource)}" />%
         else
           if controller = options[:controller]
             controller = "#{controller.to_s.camelcase}Controller".constantize
