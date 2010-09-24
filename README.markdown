@@ -31,7 +31,7 @@ Include from somewhere else within your application.
     <%= esi :header %>
     <%= esi :header, :controller => :site %>
 
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+Copyright (c) 2010 Agora Games, released under the MIT license
 
 Installation
 ============
