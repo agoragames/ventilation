@@ -33,8 +33,14 @@ Include from somewhere else within your application.
 
 Copyright (c) 2010 [name of plugin creator], released under the MIT license
 
+Installation
+============
+    gem install ventilation
+
 Resources
 =========
-  * [Ventilation Home](http://github.com/agoragames/ventilation)
+  * [Ventilation GitHub Page](http://github.com/agoragames/ventilation)
+  * [Ventilation Documentation on RubyDoc.info](http://rubydoc.info/github/agoragames/ventilation/master/frames)
+  * [Ventilation on GemCutter](https://rubygems.org/gems/ventilation)
   * [ESI Language Specification 1.0](http://www.w3.org/TR/esi-lang)
   * [Edge Side Includes - Wikipedia](http://en.wikipedia.org/wiki/Edge_Side_Includes)
