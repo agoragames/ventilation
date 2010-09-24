@@ -1,4 +1,3 @@
-
 module FancyEsi
   class DeepStack
     include ActionController::TestProcess

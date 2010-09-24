@@ -2,13 +2,10 @@
 require 'net/http'
 require 'uri'
 require 'action_controller'
-# require 'action_controller/test_process'
 require 'fancy_esi/deep_stack'
 
 module FancyEsi
-
   module EsiHelper
-
     def esi(url_options)
       env = ENV['RAILS_ENV']
       if url_options[:action]
@@ -48,6 +45,7 @@ module FancyEsi
   end
 end
 
+# Include EsiHelper in the Application
 module ApplicationHelper
   include FancyEsi::EsiHelper
 end

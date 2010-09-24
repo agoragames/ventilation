@@ -12,6 +12,8 @@ begin
     gem.homepage = "http://github.com/blakefrost/fancy_esi"
     gem.authors = ["Blake Taylor"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "fakeweb", ">= 1.2.8"
+    gem.add_development_dependency "mocha", ">= 0.9.8"
     gem.files << "lib/deep_stack.rb"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
