@@ -11,7 +11,7 @@ module Ventilation
       env = ENV['RAILS_ENV']
 
       # If we were passed a url...
-      if URI.extract(resource).any?
+      if resource =~ URI.regexp
         # ...fetch and render an external resource...
         case env
         when 'production'
