@@ -11,7 +11,7 @@ module Ventilation
       env = ENV['RAILS_ENV']
 
       # If we were passed a url...
-      if resource =~ /^(http:\/\/)?[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu)[a-zA-Z0-9\-\.\/]*$/i
+      if URI.extract(resource).any?
         # ...fetch and render an external resource...
         case env
         when 'production'
@@ -19,7 +19,8 @@ module Ventilation
         else
           url = URI.parse(resource)
           res = Net::HTTP.start(url.host, url.port) {|http|
-            http.get(url.path)
+            path = url.query ? "#{url.path}?#{url.query}" : url.path
+            http.get(path)
           }
           res.body
         end
