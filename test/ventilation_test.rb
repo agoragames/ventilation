@@ -12,9 +12,14 @@ class TestVentilation < Test::Unit::TestCase
     should "render external resource" do
       expected = "response_from_example.com"
       FakeWeb.register_uri(:get, "http://example.com/", :body => expected)
-
       actual = @consumer.esi 'http://example.com/'
+      assert_equal expected, actual, "Expected response was not rendered by esi method"
+    end
 
+    should "render external resource with port number" do
+      expected = "response_from_example.com_port_4000"
+      FakeWeb.register_uri(:get, "http://example.com:4000/", :body => expected)
+      actual = @consumer.esi 'http://example.com:4000/'
       assert_equal expected, actual, "Expected response was not rendered by esi method"
     end
 
@@ -25,9 +30,7 @@ class TestVentilation < Test::Unit::TestCase
       deep_stack = mock()
       deep_stack.expects(:get).with(:index).returns(response)
       Ventilation::DeepStack.expects(:new).with(WelcomeController).returns(deep_stack)
-
       actual = @consumer.esi :index, :controller => :welcome
-
       assert_equal expected, actual
     end
 
