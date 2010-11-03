@@ -19,7 +19,8 @@ module Ventilation
         else
           url = URI.parse(resource)
           res = Net::HTTP.start(url.host, url.port) {|http|
-            path = url.query ? "#{url.path}?#{url.query}" : url.path
+            path = url.path.blank? ? "/" : url.path
+            path = url.query ? "#{path}?#{url.query}" : path
             http.get(path)
           }
           res.body
