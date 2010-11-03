@@ -3,6 +3,7 @@ require 'uri'
 require 'action_controller'
 require 'ventilation/deep_stack'
 
+
 module Ventilation
   module EsiHelper
 
