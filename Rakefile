@@ -2,6 +2,18 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
+desc 'Default: run unit tests.'
+task :default => :test
+
+desc 'Test ventilation.'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib' << 'test'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = true
+end
+
+task :test => :check_dependencies
+
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
@@ -19,19 +31,6 @@ begin
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
-
-desc 'Test ventilation.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
-end
-
-desc 'Default: run unit tests.'
-task :default => :test
-
-task :test => :check_dependencies
 
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""

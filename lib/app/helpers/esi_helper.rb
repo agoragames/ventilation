@@ -3,7 +3,6 @@ require 'uri'
 require 'action_controller'
 require 'ventilation/deep_stack'
 
-
 module Ventilation
   module EsiHelper
 
@@ -42,6 +41,15 @@ module Ventilation
         end
       end
     end
+
+    # Patch esi to make it return an html_safe string in rails 3
+    if ::Rails::VERSION::MAJOR == 3
+      alias :esi_unsafe :esi
+      def esi(resource, options = {})
+        esi_unsafe(resource, options).html_safe
+      end
+    end
+
   end
 end
 
