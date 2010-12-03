@@ -1,0 +1,1 @@
+  * Fixes issue with urls without paths.
