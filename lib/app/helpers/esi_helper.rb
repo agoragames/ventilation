@@ -13,8 +13,9 @@ module Ventilation
       # If we were passed a url...
       if resource =~ URI.regexp
         # ...fetch and render an external resource...
-        case env
-        when 'production'
+
+        # If esi is enabled use it.
+        if esi_enabled?
           %%<esi:include src="#{resource}" />%
         else
           url = URI.parse(resource)
@@ -49,6 +50,22 @@ module Ventilation
       def esi(resource, options = {})
         esi_unsafe(resource, options).html_safe
       end
+    end
+
+    # Helper for setting expire headers.
+    #
+    # Examples:
+    #   <%- expire 5.minutes -%>
+    #   <%- expire 30.seconds -%>
+    def expire(duration)
+      headers['Cache-Control'] = 'max-age=#{duration.to_i}'
+      headers['Expires'] = duration.from_now.httpdate
+    end
+
+    private
+    def esi_enabled?
+      # Enable esi if behind varnish.
+      request.env.has_key?('HTTP_X_VARNISH')
     end
 
   end
