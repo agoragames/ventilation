@@ -63,7 +63,7 @@ module Ventilation
     #   <%- expire 5.minutes -%>
     #   <%- expire 30.seconds -%>
     def expire(duration)
-      headers['Cache-Control'] = 'max-age=#{duration.to_i}'
+      headers['Cache-Control'] = "max-age=#{duration.to_i}"
       headers['Expires'] = duration.from_now.httpdate
     end
 
