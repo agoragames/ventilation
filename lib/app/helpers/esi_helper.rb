@@ -14,7 +14,9 @@ module Ventilation
       end
     end
 
-    unless Ventilation.esi
+    # Only enable ventilation esi resolutioon features in development.
+    if 'development' == ENV['RAILS_ENV']
+
       alias :esi_tag :esi
 
       # Render resource on the edge
