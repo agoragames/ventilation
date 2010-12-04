@@ -8,7 +8,6 @@ module Ventilation
 
     # Render resource on the edge
     def esi(resource, options = {})
-      env = ENV['RAILS_ENV']
 
       # If we were passed a url...
       if resource =~ URI.regexp
@@ -28,8 +27,7 @@ module Ventilation
         end
       else
         # ...otherwise render as an action.
-        case env
-        when 'production'
+        if esi_enabled?
           %%<esi:include src="#{url_for url_options.merge(:action => resource)}" />%
         else
           if controller = options[:controller]
@@ -64,8 +62,9 @@ module Ventilation
 
     private
     def esi_enabled?
+      # HACK: The production/staging check is a hack until env specfic config can be added.
       # Enable esi if behind varnish.
-      request.env.has_key?('HTTP_X_VARNISH')
+      ["production", "staging"].include?(ENV['RAILS_ENV']) || request.env.has_key?('HTTP_X_VARNISH')
     end
 
   end
