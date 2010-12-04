@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Blake Taylor"]
-  s.date = %q{2010-11-29}
+  s.date = %q{2010-12-03}
   s.description = %q{Helper methods for building esi tags, simplifies development bypassing the need for varnish.}
   s.email = %q{btaylor@agoragames.com}
   s.extra_rdoc_files = [
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".bundle/config",
      ".gitignore",
+     "CHANGELOG.md",
      "Gemfile",
      "Gemfile.lock",
      "MIT-LICENSE",

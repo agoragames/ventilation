@@ -6,18 +6,26 @@ require 'ventilation/deep_stack'
 module Ventilation
   module EsiHelper
 
-    # Render resource on the edge
     def esi(resource, options = {})
-      env = ENV['RAILS_ENV']
-
-      # If we were passed a url...
       if resource =~ URI.regexp
-        # ...fetch and render an external resource...
+        %%<esi:include src="#{resource}" />%
+      else
+        %%<esi:include src="#{url_for options.merge(:action => resource)}" />%
+      end
+    end
 
-        # If esi is enabled use it.
-        if esi_enabled?
-          %%<esi:include src="#{resource}" />%
-        else
+    unless Ventilation.esi
+      alias :esi_tag :esi
+
+      # Render resource on the edge
+      def esi(resource, options = {})
+
+        # Use esi if supported.
+        return esi_tag(resource, options) if esi_supported?
+
+        # If we were passed a url...
+        if resource =~ URI.regexp
+          # ...fetch and render an external resource...
           url = URI.parse(resource)
           res = Net::HTTP.start(url.host, url.port) {|http|
             path = url.path.blank? ? "/" : url.path
@@ -25,13 +33,8 @@ module Ventilation
             http.get(path)
           }
           res.body
-        end
-      else
-        # ...otherwise render as an action.
-        case env
-        when 'production'
-          %%<esi:include src="#{url_for url_options.merge(:action => resource)}" />%
         else
+          # ...otherwise render as an action.
           if controller = options[:controller]
             controller = "#{controller.to_s.camelcase}Controller".constantize
           else
@@ -63,15 +66,10 @@ module Ventilation
     end
 
     private
-    def esi_enabled?
+    def esi_supported?
       # Enable esi if behind varnish.
       request.env.has_key?('HTTP_X_VARNISH')
     end
 
   end
-end
-
-# Include EsiHelper in the Application
-module ApplicationHelper
-  include Ventilation::EsiHelper
 end
