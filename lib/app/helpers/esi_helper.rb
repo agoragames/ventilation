@@ -14,7 +14,7 @@ module Ventilation
       if resource =~ URI.regexp
         # ...fetch and render an external resource...
         case env
-        when 'production'
+        when 'production', 'staging'
           %%<esi:include src="#{resource}" />%
         else
           url = URI.parse(resource)
@@ -27,7 +27,7 @@ module Ventilation
       else
         # ...otherwise render as an action.
         case env
-        when 'production'
+        when 'production', 'staging'
           %%<esi:include src="#{url_for url_options.merge(:action => resource)}" />%
         else
           if controller = options[:controller]
