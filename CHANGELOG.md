@@ -1,3 +1,5 @@
+Version 0.3.0 - 12/4/2010
+-------------------------
   * Optimize code for production esi.
   * Add expire helper for setting cache control headers.
   * Always use varnish if its available.
