@@ -15,7 +15,7 @@ module Ventilation
     end
 
     # Only enable ventilation esi resolutioon features in development.
-    if 'development' == ENV['RAILS_ENV']
+    if Rails.env.development?
 
       alias :esi_tag :esi
 
