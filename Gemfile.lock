@@ -3,7 +3,8 @@ GEM
   specs:
     fakeweb (1.2.8)
     gemcutter (0.6.1)
-    git (1.2.5)
+    git (1.11.0)
+      rchardet (~> 1.8)
     jeweler (1.4.0)
       gemcutter (>= 0.1.0)
       git (>= 1.2.5)
@@ -12,6 +13,7 @@ GEM
     mocha (0.9.8)
       rake
     rake (0.8.7)
+    rchardet (1.8.0)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     thoughtbot-shoulda (2.11.1)
