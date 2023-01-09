@@ -1,9 +1,13 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     fakeweb (1.2.8)
     gemcutter (0.6.1)
-    git (1.2.5)
+    git (1.13.0)
+      addressable (~> 2.8)
+      rchardet (~> 1.8)
     jeweler (1.4.0)
       gemcutter (>= 0.1.0)
       git (>= 1.2.5)
@@ -11,7 +15,9 @@ GEM
     json_pure (1.4.6)
     mocha (0.9.8)
       rake
+    public_suffix (5.0.1)
     rake (0.8.7)
+    rchardet (1.8.0)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     thoughtbot-shoulda (2.11.1)
